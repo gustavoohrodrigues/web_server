@@ -1,38 +1,101 @@
-Role Name
-=========
+# Ansible Role: Web Server
 
-A brief description of the role goes here.
+This Ansible role installs and configures a web server environment automatically.
 
-Requirements
-------------
+The role is designed to be reusable and can be integrated into infrastructure automation pipelines or configuration management workflows.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+---
 
-Role Variables
---------------
+## 📌 Overview
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The **web_server** role automates the installation and configuration of a web server stack in Linux environments.
 
-Dependencies
-------------
+It is commonly used to deploy application servers inside automated infrastructure environments.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+---
 
-Example Playbook
-----------------
+## 🚀 Features
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+* Automated web server installation
+* Web service configuration
+* Ready for infrastructure automation
+* Compatible with Ansible Galaxy roles
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+---
 
-License
--------
+## 🧰 Requirements
 
-BSD
+* Ansible >= 2.9
+* Linux host (Ubuntu, Debian, CentOS, Rocky, AlmaLinux)
 
-Author Information
-------------------
+---
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+## 📂 Role Structure
+
+```
+web_server/
+├── tasks
+│   └── main.yml
+├── handlers
+│   └── main.yml
+├── templates
+│   └── *.j2
+├── defaults
+│   └── main.yml
+├── vars
+│   └── main.yml
+├── meta
+│   └── main.yml
+```
+
+---
+
+## ⚙️ Role Variables
+
+Example variables:
+
+```yaml
+web_server_port: 80
+web_server_root: /var/www/html
+```
+
+Variables can be customized in:
+
+```
+defaults/main.yml
+vars/main.yml
+```
+
+---
+
+## ▶️ Example Playbook
+
+```yaml
+- hosts: webservers
+  become: true
+  roles:
+    - gustavoohrodrigues.web_server
+```
+
+---
+
+## 📦 Installation via Ansible Galaxy
+
+```bash
+ansible-galaxy install gustavoohrodrigues.web_server
+```
+
+---
+
+## Author
+
+**Gustavo Henrique Rodrigues**
+
+LinkedIn
+https://www.linkedin.com/in/gustavo-henrique-rodrigues-3070a5260
+
+---
+
+## 📜 License
+
+MIT
